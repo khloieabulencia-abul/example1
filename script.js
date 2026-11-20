@@ -1,4 +1,4 @@
-const $=id=>document.getElementById(id);
+ const $=id=>document.getElementById(id);
 /* ---------- sound ---------- */
 let AC;
 function tone(f,d=.12,type='sine',v=.15,at=0){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();const o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime+at;o.type=type;o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.01);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g);g.connect(AC.destination);o.start(t);o.stop(t+d+.02)}catch(e){}}
